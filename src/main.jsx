@@ -11,6 +11,7 @@ import MainLayout from './layout/MainLayout.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import Home from './pages/Home.jsx';
 import AddExpenses from './components/AddExpenses.jsx';
+import AllExpenses from './components/AllExpenses.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/addexpenses',
         element: <AddExpenses></AddExpenses>
+      },
+      {
+        path: 'allexpenses',
+        element: <AllExpenses></AllExpenses>
       }
     ]
   },
