@@ -4,7 +4,9 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateInfo = () => {
+
     const { title, amount, category, date, _id } = useLoaderData();
+    console.log('Expense ID:', _id);
     const { register, handleSubmit, } = useForm()
     const navigate = useNavigate()
     const onSubmit = async (data) => {

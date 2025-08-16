@@ -2,6 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import Home from './pages/Home.jsx';
+import AddExpenses from './components/AddExpenses.jsx';
+import AllExpenses from './components/AllExpenses.jsx';
+import UpdateInfo from './pages/UpdateInfo.jsx';
 
 import {
   createBrowserRouter,
@@ -9,10 +13,6 @@ import {
 } from "react-router-dom";
 import MainLayout from './layout/MainLayout.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
-import Home from './pages/Home.jsx';
-import AddExpenses from './components/AddExpenses.jsx';
-import AllExpenses from './components/AllExpenses.jsx';
-import UpdateInfo from './pages/UpdateInfo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
         element: <UpdateInfo></UpdateInfo>,
         loader: ({params}) => fetch(`http://localhost:5000/expenses/${params.id}`)
       },
+     
     ]
   },
 ]);
