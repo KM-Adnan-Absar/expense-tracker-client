@@ -1,32 +1,33 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateInfo = () => {
-    const {title , amount ,  category , date , _id} = useLoaderData();
-    const { register, handleSubmit,  } = useForm()
+    const { title, amount, category, date, _id } = useLoaderData();
+    const { register, handleSubmit, } = useForm()
+    const navigate = useNavigate()
     const onSubmit = async (data) => {
 
-    const res = await axios.patch(`http://localhost:5000/expenses/${_id}`, data)
-    
-        if(res.data.modifiedCount > 0){
-          Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: 'Expense Successfully Updated',
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
+        const res = await axios.patch(`http://localhost:5000/expenses/${_id}`, data)
+
+        if (res.data.modifiedCount > 0) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: 'Expense Successfully Updated',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            navigate('/allexpenses')
         }
         console.log(data);
-        
+
     }
 
-   
+
     return (
-       <div>
+        <div>
             <h2 className="font-bold text-center text-2xl mt-4 text-blue-950">UPDATE EXPENSE</h2>
             <form className="mb-12  w-6/12 mx-auto" onSubmit={handleSubmit(onSubmit)}>
 

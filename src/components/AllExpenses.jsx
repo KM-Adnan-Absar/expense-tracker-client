@@ -3,10 +3,38 @@ import { useEffect, useState } from "react";
 import { MdSystemUpdateAlt } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 const AllExpenses = () => {
 
     const [expenses , setExpenses] = useState([]);
 
+    const handleDelete = id => {
+        Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    })
+    .then( async (result) => {
+        if(result.isConfirmed){
+            const res = await axios.delete(`http://localhost:5000/expenses/${id}`);
+            if(res.data.deletedCount > 0){
+                  Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Deleted Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                        setExpenses(expenses.filter(exp=> exp._id !==id))
+            }
+        }
+    })
+    }
     useEffect(() => {
         axios.get('http://localhost:5000/expenses')
         .then((res)=> {
@@ -43,14 +71,14 @@ const AllExpenses = () => {
         expenses.map((expense , index)=> (
              <tr key={index}>
         <th>{index+1}</th>
-        <td>{expense.title}</td>
+        <td >{expense.title}</td>
         <td>{expense.amount}</td>
-        <td>{expense.category}</td>
+        <td className="badge  text-cyan-500 mt-2 font-bold">{expense.category}</td>
         <td>{expense.date}</td>
         {/* update  */}
-        <td><Link to={`/updateinfo/${expense._id}`}><button className="text-lg text-green-600" ><MdSystemUpdateAlt /></button></Link></td>
+        <td><Link to={`/updateinfo/${expense._id}`}><button className="text-lg text-emerald-600" ><MdSystemUpdateAlt /></button></Link></td>
         {/* delete  */}
-        <td><button className="text-lg text-red-600"><MdDelete /></button></td>
+        <td><button onClick={ () => handleDelete(expense._id)} className="text-lg text-red-600"><MdDelete /></button></td>
 
       </tr>))
      

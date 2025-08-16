@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddExpenses = () => {
     const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate()
     const onSubmit = async (data) => {
 
         const res = await axios.post('http://localhost:5000/expenses', data)
@@ -17,6 +19,7 @@ const AddExpenses = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            navigate('/allexpenses')
         }
         console.log(data);
 
@@ -62,10 +65,10 @@ const AddExpenses = () => {
                     <select defaultValue="default" {...register('category', { required: true })}
                         className="select select-bordered w-full">
                         <option disabled value="default">Select a category</option>
-                        <option value="food">Food</option>
-                        <option value="transport">Transport</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="others">Others</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Others">Others</option>
 
                     </select>
                 </div>
