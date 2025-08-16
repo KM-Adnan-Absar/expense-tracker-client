@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import Home from './pages/Home.jsx';
 import AddExpenses from './components/AddExpenses.jsx';
 import AllExpenses from './components/AllExpenses.jsx';
+import UpdateInfo from './pages/UpdateInfo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,12 @@ const router = createBrowserRouter([
         element: <AddExpenses></AddExpenses>
       },
       {
-        path: 'allexpenses',
+        path: '/allexpenses',
         element: <AllExpenses></AllExpenses>
+      },
+      {
+        path:'/updateinfo',
+        element: <UpdateInfo></UpdateInfo>
       }
     ]
   },
