@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path:'/updateinfo/:id',
         element: <UpdateInfo></UpdateInfo>,
-        loader: ({params}) => fetch(`http://localhost:5000/expenses/${params.id}`)
+        loader: ({params}) => fetch(`https://expense-tracker-server-lemon.vercel.app/expenses/${params.id}`)
       },
 
     

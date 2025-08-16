@@ -1,12 +1,45 @@
-# React + Vite
+## Project name: 
+Personal Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features:
+1. Home page with expenses category using pie chart
+2. Add Expenses (where user can add their expenses)
+3. All Expenses (Where user can see all expenses , update and delete expenses).
+4. Responsive Design for large , medium and small devices.
 
-Currently, two official plugins are available:
+## Technologies
+-------------------
+## Frontend
+1. Framework: React JS , 
+2. Styling: Tailwind CSS,Daisy ui
+3. API Communication: Axios 
+4. Reusable Component
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Backend
+4. Backend: Node.js, Express.js, MongoDB  
 
-## Expanding the ESLint configuration
+## Frontend Setup 
+1. git clone from client repository
+2. cd  project folder
+3. Install dependencies
+4. Run the app: npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Backend Setup 
+
+1. git clone the server repo 
+2. cd server project
+3. install dependencies
+4. set up environment variables 
+5. Run the server: nodemon index.js
+
+## How to Use
+
+1. Open the frontend in your browser.
+
+2. Add a new expense via the "Add Expenses" page.
+
+3. View all expenses on the "All Expenses" page.
+
+4. Update or delete any expense as needed.
+
+5. Check the Home page for a pie chart visualization of your expenses.

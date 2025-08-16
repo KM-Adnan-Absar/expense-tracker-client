@@ -8,7 +8,7 @@ const AddExpenses = () => {
     const navigate = useNavigate()
     const onSubmit = async (data) => {
 
-        const res = await axios.post('http://localhost:5000/expenses', data)
+        const res = await axios.post('https://expense-tracker-server-lemon.vercel.app/expenses', data)
 
         if (res.data.insertedId) {
             reset()

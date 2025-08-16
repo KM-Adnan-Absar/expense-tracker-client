@@ -11,7 +11,7 @@ const UpdateInfo = () => {
     const navigate = useNavigate()
     const onSubmit = async (data) => {
 
-        const res = await axios.patch(`http://localhost:5000/expenses/${_id}`, data)
+        const res = await axios.patch(`https://expense-tracker-server-lemon.vercel.app/expenses/${_id}`, data)
 
         if (res.data.modifiedCount > 0) {
             Swal.fire({

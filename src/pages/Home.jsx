@@ -6,7 +6,7 @@ const Home = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/expenses")
+    axios.get("https://expense-tracker-server-lemon.vercel.app/expenses")
       .then(res => setExpenses(res.data))
       .catch(err => console.log(err));
   }, []);

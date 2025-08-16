@@ -11,7 +11,7 @@ const AllExpenses = () => {
   // Fetch expenses
   const fetchExpenses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/expenses", {
+      const res = await axios.get("https://expense-tracker-server-lemon.vercel.app/expenses", {
         params: { category: selectedCategory },
       });
       setExpenses(res.data);
@@ -36,7 +36,7 @@ const AllExpenses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await axios.delete(`http://localhost:5000/expenses/${id}`);
+        const res = await axios.delete(`https://expense-tracker-server-lemon.vercel.app/expenses/${id}`);
         if (res.data.deletedCount > 0) {
           Swal.fire({
             position: "top-end",
