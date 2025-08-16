@@ -47,7 +47,9 @@ const AllExpenses = () => {
         <td>{expense.amount}</td>
         <td>{expense.category}</td>
         <td>{expense.date}</td>
-        <td><Link to='/updateinfo'><button className="text-lg text-green-600" ><MdSystemUpdateAlt /></button></Link></td>
+        {/* update  */}
+        <td><Link to={`/updateinfo/${expense._id}`}><button className="text-lg text-green-600" ><MdSystemUpdateAlt /></button></Link></td>
+        {/* delete  */}
         <td><button className="text-lg text-red-600"><MdDelete /></button></td>
 
       </tr>))

@@ -33,9 +33,10 @@ const router = createBrowserRouter([
         element: <AllExpenses></AllExpenses>
       },
       {
-        path:'/updateinfo',
-        element: <UpdateInfo></UpdateInfo>
-      }
+        path:'/updateinfo/:id',
+        element: <UpdateInfo></UpdateInfo>,
+        loader: ({params}) => fetch(`http://localhost:5000/expenses/${params.id}`)
+      },
     ]
   },
 ]);
